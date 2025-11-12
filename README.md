@@ -1,2 +1,2 @@
-# sharathreddym.github.io
+# smanisha-reddy.github.io
 Personal portfolio site
