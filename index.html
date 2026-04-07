@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Temperature Monitoring</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        h2 {
+            color: #555;
+        }
+        #past-readings div {
+            margin: 5px 0;
+        }
+        input, select, button {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-time Temperature and Humidity Monitoring</h1>
+    
+    <div>
+        <h3>Current Temperature: <span id="current-temperature">Loading...</span>°C</h3>
+        <h3>Current Humidity: <span id="current-humidity">Loading...</span>%</h3>
+    </div>
+
+    <h2>Temperature Trend</h2>
+    <canvas id="temperature-chart" width="400" height="200"></canvas>
+
+    <h2>Search Past Temperature Readings</h2>
+    <form id="search-form">
+        <label for="threshold">Enter Threshold For Temperature:</label>
+        <input type="number" id="threshold" placeholder="Enter threshold value">
+        <select id="filter-type">
+            <option value="above">Above</option>
+            <option value="below">Below</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+
+    <h3>Past Readings</h3>
+    <div id="past-readings"></div>
+
+    <script>
+        const socket = io.connect('http://127.0.0.1:5000');  // Updated URL for Socket.IO connection
+
+        // Real-time data updates for temperature and humidity
+        socket.on('update_data', (data) => {
+            const currentTemp = data.temperature || 'N/A';
+            const currentHumidity = data.humidity || 'N/A';
+
+            document.getElementById('current-temperature').textContent = currentTemp;
+            document.getElementById('current-humidity').textContent = currentHumidity;
+
+            // Update graph with new temperature data
+            addTemperatureData(currentTemp);
+        });
+
+        // Chart.js setup for real-time graph
+        const ctx = document.getElementById('temperature-chart').getContext('2d');
+        const temperatureChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Temperature (°C)',
+                    data: [],
+                    borderColor: 'rgb(255, 99, 132)',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        type: 'linear',
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Function to add new data to the graph
+        function addTemperatureData(temp) {
+            const now = new Date().getTime();
+            if (temperatureChart.data.labels.length >= 10) {
+                temperatureChart.data.labels.shift();
+                temperatureChart.data.datasets[0].data.shift();
+            }
+            temperatureChart.data.labels.push(now);
+            temperatureChart.data.datasets[0].data.push(temp);
+            temperatureChart.update();
+        }
+
+        // Handle search form submission for past readings
+        document.getElementById('search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const threshold = document.getElementById('threshold').value;
+            const filterType = document.getElementById('filter-type').value;
+
+            console.log(`Threshold: ${threshold}, Filter Type: ${filterType}`); // Debugging threshold and filter type
+
+            fetch(`http://127.0.0.1:5000/get_past_readings?threshold=${threshold}&filter_type=${filterType}`)
+                .then(response => response.json())
+                .then(data => {
+                    const pastReadingsDiv = document.getElementById('past-readings');
+                    pastReadingsDiv.innerHTML = '';  // Clear previous results
+                    if (data.past_readings && data.past_readings.length > 0) {
+                        data.past_readings.forEach(reading => {
+                            const div = document.createElement('div');
+                            div.textContent = `Temperature: ${reading.temperature}°C, Humidity: ${reading.humidity}%`;
+                            pastReadingsDiv.appendChild(div);
+                        });
+                    } else {
+                        pastReadingsDiv.textContent = 'No readings found.';
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching past readings:", error);
+                    const pastReadingsDiv = document.getElementById('past-readings');
+                    pastReadingsDiv.innerHTML = 'Failed to fetch data.';
+                });
+        });
+    </script>
+</body>
+</html>
