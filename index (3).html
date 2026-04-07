@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manisha Sankalamaddi — Snowflake Developer & Data Engineer</title>
+  <meta name="description" content="Professional portfolio of Manisha Sankalamaddi - SnowPro Core Certified Snowflake Developer specializing in data pipelines, cloud data warehousing, SQL, and ETL/ELT workflows.">
+  <link rel="canonical" href="https://smanisha-reddy.github.io/">
+  <meta property="og:title" content="Manisha Sankalamaddi — Snowflake Developer & Data Engineer">
+  <meta property="og:description" content="Designing data pipelines, building cloud-based data warehouse solutions, and developing advanced SQL transformations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://smanisha-reddy.github.io/">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #3b82f6;
+      --primary-bright: #60a5fa;
+      --secondary: #8b5cf6;
+      --pink: #ec4899;
+      --pink-bright: #f472b6;
+      --accent: #06b6d4;
+      --bg-dark: #0f0f0f;
+      --bg-light: #1a1a1a;
+      --bg-card: #1e1e1e;
+      --bg-card-light: #252525;
+      --text-primary: #ffffff;
+      --text-secondary: #e5e5e5;
+      --text-muted: #a3a3a3;
+      --gradient-1: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+      --gradient-2: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --gradient-3: linear-gradient(135deg, #ec4899 0%, #3b82f6 100%);
+      --gradient-pink-blue: linear-gradient(135deg, #f472b6 0%, #60a5fa 100%);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 25px 80px rgba(0, 0, 0, 0.6);
+      --shadow-pink: 0 20px 60px rgba(236, 72, 153, 0.3);
+      --shadow-blue: 0 20px 60px rgba(59, 130, 246, 0.3);
+      --shadow-purple: 0 20px 60px rgba(139, 92, 246, 0.3);
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Particle Background */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      background: var(--bg-dark);
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 15, 15, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(236, 72, 153, 0.3);
+      z-index: 1000;
+      padding: 1rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+      border-bottom-color: rgba(236, 72, 153, 0.5);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gradient-2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-2);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      text-align: left;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex-shrink: 0;
+    }
+
+    .profile-pic {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 6px solid transparent;
+      background: var(--gradient-2);
+      padding: 6px;
+      box-shadow: 0 20px 60px rgba(59, 130, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.2);
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+      transition: all 0.4s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 80px rgba(59, 130, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.3);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2));
+      border: 1px solid rgba(236, 72, 153, 0.5);
+      border-radius: 50px;
+      color: #f472b6;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    .typing-text {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      min-height: 2.5rem;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease 0.4s backwards;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.5rem;
+      background: var(--primary);
+      margin-left: 4px;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    .hero-description {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      animation: fadeInUp 0.8s ease 0.6s backwards;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.8s backwards;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--gradient-1);
+      color: white;
+      box-shadow: var(--shadow-pink);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(236, 72, 153, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Section Styles */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Alternating section backgrounds */
+    section#skills,
+    section#education {
+      background: var(--bg-light);
+      max-width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    section#skills > *,
+    section#education > * {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Scroll Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-light) 100%);
+      border-radius: 20px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      cursor: pointer;
+    }
+
+    .project-card:nth-child(1) { border-color: rgba(236, 72, 153, 0.2); }
+    .project-card:nth-child(2) { border-color: rgba(59, 130, 246, 0.2); }
+    .project-card:nth-child(3) { border-color: rgba(139, 92, 246, 0.2); }
+    .project-card:nth-child(4) { border-color: rgba(6, 182, 212, 0.2); }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-1);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:nth-child(1)::before { background: var(--gradient-1); }
+    .project-card:nth-child(2)::before { background: var(--gradient-2); }
+    .project-card:nth-child(3)::before { background: var(--gradient-3); }
+    .project-card:nth-child(4)::before { background: var(--gradient-pink-blue); }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) rotateX(5deg);
+      background: linear-gradient(135deg, var(--bg-card-light) 0%, var(--bg-card) 100%);
+    }
+
+    .project-card:nth-child(1):hover {
+      box-shadow: var(--shadow-pink);
+      border-color: rgba(236, 72, 153, 0.5);
+    }
+
+    .project-card:nth-child(2):hover {
+      box-shadow: var(--shadow-blue);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    .project-card:nth-child(3):hover {
+      box-shadow: var(--shadow-purple);
+      border-color: rgba(139, 92, 246, 0.5);
+    }
+
+    .project-card:nth-child(4):hover {
+      box-shadow: 0 20px 60px rgba(6, 182, 212, 0.3);
+      border-color: rgba(6, 182, 212, 0.5);
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      padding: 0.3rem 0.8rem;
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2));
+      border: 1px solid rgba(236, 72, 153, 0.4);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #f9a8d4;
+      font-weight: 500;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-light) 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card:nth-child(1) { border-color: rgba(236, 72, 153, 0.2); }
+    .skill-card:nth-child(2) { border-color: rgba(59, 130, 246, 0.2); }
+    .skill-card:nth-child(3) { border-color: rgba(139, 92, 246, 0.2); }
+    .skill-card:nth-child(4) { border-color: rgba(6, 182, 212, 0.2); }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-1);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .skill-card:nth-child(1)::before { background: var(--gradient-1); }
+    .skill-card:nth-child(2)::before { background: var(--gradient-2); }
+    .skill-card:nth-child(3)::before { background: var(--gradient-3); }
+    .skill-card:nth-child(4)::before { background: var(--gradient-pink-blue); }
+
+    .skill-card:hover::before {
+      opacity: 0.15;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-card:nth-child(1):hover {
+      border-color: rgba(236, 72, 153, 0.5);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .skill-card:nth-child(2):hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: var(--shadow-blue);
+    }
+
+    .skill-card:nth-child(3):hover {
+      border-color: rgba(139, 92, 246, 0.5);
+      box-shadow: var(--shadow-purple);
+    }
+
+    .skill-card:nth-child(4):hover {
+      border-color: rgba(6, 182, 212, 0.5);
+      box-shadow: 0 20px 60px rgba(6, 182, 212, 0.3);
+    }
+
+    .skill-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skill-card p {
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gradient-1);
+    }
+
+    .timeline-item {
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-light) 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(236, 72, 153, 0.2);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -3.5rem;
+      top: 2rem;
+      width: 1rem;
+      height: 1rem;
+      background: var(--gradient-1);
+      border-radius: 50%;
+      border: 3px solid var(--bg-dark);
+      box-shadow: 0 0 15px rgba(236, 72, 153, 0.6);
+    }
+
+    .timeline-item:hover {
+      transform: translateX(10px);
+      border-color: rgba(236, 72, 153, 0.5);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .timeline-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .timeline-meta {
+      color: #f472b6;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .timeline-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .timeline-item li {
+      padding-left: 1.5rem;
+      position: relative;
+      margin-bottom: 0.5rem;
+      color: var(--text-secondary);
+    }
+
+    .timeline-item li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: #f472b6;
+      font-weight: bold;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-light) 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(139, 92, 246, 0.2);
+      text-decoration: none;
+      color: var(--text-primary);
+      display: block;
+    }
+
+    .contact-card:nth-child(1) { border-color: rgba(236, 72, 153, 0.2); }
+    .contact-card:nth-child(2) { border-color: rgba(59, 130, 246, 0.2); }
+    .contact-card:nth-child(3) { border-color: rgba(139, 92, 246, 0.2); }
+    .contact-card:nth-child(4) { border-color: rgba(6, 182, 212, 0.2); }
+    .contact-card:nth-child(5) { border-color: rgba(249, 115, 22, 0.2); }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact-card:nth-child(1):hover {
+      border-color: rgba(236, 72, 153, 0.6);
+      box-shadow: var(--shadow-pink);
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(139, 92, 246, 0.15));
+    }
+
+    .contact-card:nth-child(2):hover {
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: var(--shadow-blue);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+    }
+
+    .contact-card:nth-child(3):hover {
+      border-color: rgba(139, 92, 246, 0.6);
+      box-shadow: var(--shadow-purple);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.15));
+    }
+
+    .contact-card:nth-child(4):hover {
+      border-color: rgba(6, 182, 212, 0.6);
+      box-shadow: 0 20px 60px rgba(6, 182, 212, 0.3);
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15));
+    }
+
+    .contact-card:nth-child(5):hover {
+      border-color: rgba(249, 115, 22, 0.6);
+      box-shadow: 0 20px 60px rgba(249, 115, 22, 0.3);
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(236, 72, 153, 0.15));
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .profile-pic {
+        width: 200px;
+        height: 200px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .typing-text {
+        font-size: 1.2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .timeline {
+        padding-left: 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particle Background -->
+  <div id="particles-js"></div>
+
+  <!-- Content -->
+  <div class="content-wrapper">
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <div class="logo">MS</div>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-tag">❄️ Snowflake Developer & Data Engineer</div>
+          <h1>Manisha Sankalamaddi</h1>
+          <div class="typing-text" id="typingText"><span class="cursor"></span></div>
+          <p class="hero-description">
+            Snowflake SnowPro Core Certified data professional with 3+ years of experience designing data pipelines,
+            building cloud-based data warehouse solutions, and developing advanced SQL transformations for scalable
+            analytics environments across Snowflake, AWS, and big data platforms.
+          </p>
+          <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="#projects" class="btn btn-secondary">View Projects</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="profile.jpg" alt="Manisha Sankalamaddi" class="profile-pic">
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" onclick="window.open('https://github.com/smanisha-reddy/Taxi_HDFS_To_Snowflake','_blank')">
+          <h3>Taxi HDFS to Snowflake Pipeline</h3>
+          <p>Built an end-to-end NYC Taxi data pipeline using HDFS, PySpark, Snowflake, S3, and Streamlit. Ingested raw trip data, transformed it into analytics-ready datasets, loaded reference data from S3, and created reporting views.</p>
+          <div class="project-tags">
+            <span class="tag">HDFS</span>
+            <span class="tag">PySpark</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">S3</span>
+            <span class="tag">Streamlit</span>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="window.open('https://github.com/smanisha-reddy/aws-s3-snowflake-products-pipeline','_blank')">
+          <h3>AWS S3 to Snowflake Products Pipeline</h3>
+          <p>AWS S3 to Snowflake data pipeline for product data ingestion, transformation, and task-based automation using storage integrations, external stages, raw staging tables, curated analytics tables, and scheduled refresh tasks.</p>
+          <div class="project-tags">
+            <span class="tag">AWS S3</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">External Stages</span>
+            <span class="tag">Tasks</span>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="window.open('https://github.com/smanisha-reddy/github-events-snowflake-pipeline','_blank')">
+          <h3>GitHub Events Snowflake Pipeline</h3>
+          <p>A free-access GitHub Events to Snowflake pipeline built with Python and Snowflake. Fetches GitHub event data through authenticated REST API calls, lands data as NDJSON, loads into RAW tables, and transforms into CURATED tables.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">REST API</span>
+            <span class="tag">NDJSON</span>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="window.open('https://github.com/smanisha-reddy/streamlit_cortex_dashboard','_blank')">
+          <h3>Streamlit Cortex Dashboard</h3>
+          <p>Interactive Streamlit sales analytics dashboard built with Python and Snowflake, enhanced using Cortex Code CLI for prompt-driven code updates, UI improvements, and development acceleration.</p>
+          <div class="project-tags">
+            <span class="tag">Streamlit</span>
+            <span class="tag">Snowflake</span>
+            <span class="tag">Cortex</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="fade-in">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">❄️</div>
+          <h3>Snowflake</h3>
+          <p>Snowflake Cloud Data Platform, Snowflake SQL, Stored Procedures, Streams, Tasks, External Stages, Zero-Copy Cloning, Incremental Loads, Query Optimization, Performance Tuning</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <h3>Data Engineering & Warehousing</h3>
+          <p>ETL/ELT, Data Migration, Data Transformation, Data Modeling, Dimensional Modeling, Star Schema, Data Warehousing, Data Validation, Data Reconciliation, Data Quality</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">☁️</div>
+          <h3>Cloud Platforms & Big Data</h3>
+          <p>AWS S3, AWS Glue, Amazon Redshift, Amazon Athena, GCP BigQuery, Hadoop, HDFS, Apache Spark, PySpark, Spark SQL</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3>Programming, BI & DevOps</h3>
+          <p>SQL, Python, Pandas, NumPy, Power BI, Tableau, KPI Reporting, Dashboard Development, Azure DevOps, Git, CI/CD, Docker, Kubernetes</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3 class="timeline-title">Data Analyst – Snowflake Developer — Integrated Proteins</h3>
+          <p class="timeline-meta">Oct 2025 – Present</p>
+          <ul>
+            <li>Designed and developed Snowflake-based ELT pipelines to migrate operational data from source systems into external stages, staging tables, and curated warehouse tables</li>
+            <li>Built and maintained advanced Snowflake SQL stored procedures for data ingestion, transformation, business-rule processing, and recurring load execution</li>
+            <li>Implemented incremental load workflows using Snowflake Streams and Tasks, enabling efficient processing of newly added and changed records</li>
+            <li>Automated recurring data workflows through Snowflake Tasks with CRON scheduling for timely delivery of refreshed datasets</li>
+            <li>Created reporting-ready Snowflake views and transformed data layers used as the backend for Power BI dashboards</li>
+            <li>Used Zero-Copy Cloning for backup, testing, and environment replication, preserving production data integrity</li>
+            <li>Performed data validation, reconciliation, deduplication, and query optimization in Snowflake</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="timeline-title">Data Analyst — Sodexo</h3>
+          <p class="timeline-meta">Jul 2024 – Oct 2025</p>
+          <ul>
+            <li>Built and maintained AWS-based data migration and transformation workflows using Amazon S3, AWS Glue, Amazon Redshift, and Athena</li>
+            <li>Developed ETL pipelines to ingest raw data, apply transformations, and load structured datasets into Amazon Redshift</li>
+            <li>Wrote advanced SQL queries in Redshift and Athena for transformation, reconciliation, validation, and trend analysis</li>
+            <li>Used Python (Pandas, NumPy) to clean, standardize, preprocess, and automate recurring data preparation tasks</li>
+            <li>Created and maintained curated reporting tables and analytical datasets that improved consistency of KPIs</li>
+            <li>Supported incremental and scheduled data refresh workflows ensuring timely movement of updated data</li>
+            <li>Applied strong data quality controls including source-to-target validation, reconciliation, and deduplication</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="timeline-title">Data Engineer — RSoft Systems & Services Pvt. Ltd.</h3>
+          <p class="timeline-meta">Jun 2021 – Jun 2023</p>
+          <ul>
+            <li>Ingested data from databases, flat files, APIs, and system-generated files into Hadoop/HDFS for centralized storage and distributed processing</li>
+            <li>Built ingestion workflows using ETL jobs and Python scripts to land source data into raw HDFS layers</li>
+            <li>Used PySpark and Spark SQL to read data from HDFS, clean and standardize fields, apply business rules, and transform raw data into structured datasets</li>
+            <li>Processed both historical and incremental datasets in Hadoop and Spark, converting high-volume raw data into curated outputs</li>
+            <li>Wrote Spark SQL and SQL-based logic for joins, aggregations, validation, reconciliation, and deduplication across large-scale datasets</li>
+            <li>Moved transformed datasets from Hadoop/Spark layer into AWS including Amazon S3 for cloud-based analytics access</li>
+            <li>Prepared curated datasets for downstream Power BI and Tableau reporting with strong data quality and consistency</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="fade-in">
+      <h2 class="section-title">Education & Certifications</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3 class="timeline-title">Master of Science, Computer Science — University of Missouri–Kansas City</h3>
+          <p class="timeline-meta">Aug 2023 – May 2025 · GPA: 3.74 / 4.0</p>
+        </div>
+
+        <div class="timeline-item">
+          <h3 class="timeline-title">Certifications</h3>
+          <ul>
+            <li>Snowflake SnowPro Core Certified (Credential ID: 179071720)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+      <h2 class="section-title">Let's Connect</h2>
+      <div class="contact-grid">
+        <a href="mailto:manishareddy3217@gmail.com" class="contact-card">
+          <div class="contact-icon">📧</div>
+          <h3>Email</h3>
+          <p>manishareddy3217@gmail.com</p>
+        </a>
+
+        <a href="https://www.linkedin.com/in/manisha-sankalamaddi-24baa6220/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">💼</div>
+          <h3>LinkedIn</h3>
+          <p>Manisha Reddy</p>
+        </a>
+
+        <a href="https://github.com/smanisha-reddy" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">💻</div>
+          <h3>GitHub</h3>
+          <p>@smanisha-reddy</p>
+        </a>
+
+        <a href="tel:+18162635480" class="contact-card">
+          <div class="contact-icon">📱</div>
+          <h3>Phone</h3>
+          <p>+1 (816) 263-5480</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; <span id="year"></span> Manisha Sankalamaddi. Snowflake Developer & Data Engineer.</p>
+    </footer>
+  </div>
+
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Typing Animation
+    const typingText = document.getElementById('typingText');
+    const phrases = [
+      'Building Snowflake-based ELT pipelines and data warehouses.',
+      'Developing advanced SQL transformations for scalable analytics.',
+      'Designing incremental data pipelines with Streams and Tasks.',
+      'Engineering cloud data solutions across Snowflake, AWS, and Spark.'
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        typingText.innerHTML = currentPhrase.substring(0, charIndex - 1) + '<span class="cursor"></span>';
+        charIndex--;
+      } else {
+        typingText.innerHTML = currentPhrase.substring(0, charIndex + 1) + '<span class="cursor"></span>';
+        charIndex++;
+      }
+
+      let typeSpeed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        typeSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typeSpeed = 500;
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+
+    setTimeout(type, 1000);
+
+    // Particles.js Configuration
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: ['#ec4899', '#8b5cf6', '#3b82f6', '#06b6d4']
+        },
+        shape: {
+          type: 'circle',
+          stroke: {
+            width: 0,
+            color: '#000000'
+          }
+        },
+        opacity: {
+          value: 0.6,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 1,
+            opacity_min: 0.3,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: true,
+            speed: 2,
+            size_min: 1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#f472b6',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: {
+            enable: true,
+            mode: 'grab'
+          },
+          onclick: {
+            enable: true,
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 140,
+            line_linked: {
+              opacity: 0.8
+            }
+          },
+          push: {
+            particles_nb: 4
+          }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Scroll Animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          document.getElementById('navLinks').classList.remove('active');
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // 3D Card Effect on Mouse Move
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
